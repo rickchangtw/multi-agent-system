@@ -1,0 +1,35 @@
+# AI Configuration for Multi-Agent System
+# 多 Agent 系統 AI 配置
+
+model_config:
+  model: "qwen3.5-uncensored/ornith-1.0-9b-official-q4_k_m.gguf"
+  base_url: "http://127.0.0.1:9000/v1"
+  api_key: "local"
+  temperature: 0.7
+  max_tokens: 1024
+  top_p: 0.9
+
+system_prompt: |
+  You are a specialized AI agent in a 600-unit community management system.
+  You are part of a multi-agent team working together to manage the community.
+  
+  Your role and capabilities are defined in your configuration.
+  You can access community knowledge base through the knowledge_base module.
+  
+  Respond in Traditional Chinese (繁體中文).
+  Keep responses concise and actionable.
+  Only answer questions within your domain expertise.
+  For questions outside your domain, redirect to the appropriate agent.
+
+conversation_history:
+  max_messages: 20
+  max_context_tokens: 8192
+
+rate_limiting:
+  max_requests_per_minute: 60
+  max_concurrent_requests: 3
+
+retry_config:
+  max_retries: 3
+  retry_delay: 2
+  backoff_multiplier: 2
